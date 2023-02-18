@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="card-body">
+        <h2 class="card-title">List of all threats</h2>
+        <div class="mb-3 row">
+            <ul *ngFor="let threat of threats">
+                <li>
+                    {{threat['description']}} : {{threat['longtitude']}}, {{threat['latitude']}} : LEVEL : {{threat['level']}}
+                </li>
+                <button type="button" class="btn btn-danger" (click)="deleteThreat(threat['id'])">Delete</button>
+            </ul>
+        </div>
+    </div>
+</div>

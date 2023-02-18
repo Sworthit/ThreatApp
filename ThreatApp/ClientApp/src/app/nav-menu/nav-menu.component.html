@@ -1,0 +1,39 @@
+<header>
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+  >
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">ThreatApp</a>
+      <a *ngIf="isUserAdmin" class="nav-link" [routerLink]="['/admin']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        Admin
+      </a>
+      <a *ngIf="isUserAuthenticated" class="nav-link" [routerLink]="['/add']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Add threat</a>
+        <ul class="navbar-nav flex-grow">
+          <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+          </li>
+          <form class="d-flex">
+            <ul *ngIf='!isUserAuthenticated' class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                <a class="nav-link"[routerLink]="['/authentication/login']" routerLinkActive="active" 
+                  [routerLinkActiveOptions]="{exact: true}">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"[routerLink]="['/authentication/register']" routerLinkActive="active" 
+                  [routerLinkActiveOptions]="{exact: true}">Register</a>
+              </li>
+            </ul>
+            <ul *ngIf='isUserAuthenticated' class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                <button class="btn btn-link" style="color: #02020280;" (click)="logout()">Logout</button>
+              </li>
+            </ul>
+          </form>
+        </ul>
+      </div>
+  </nav>
+</header>

@@ -1,0 +1,12 @@
+<ul style="align-self: center;">
+    <google-map [center]="center"
+    (mapDblclick)="eventHandler($event,'mapDblclick')">
+      <map-marker
+        *ngFor="let marker of markers"
+        [position]="marker.position"
+        [label]="marker.label"
+        [title]="marker.title"
+        [options]="marker.option"
+        ></map-marker>
+    </google-map>
+</ul>
